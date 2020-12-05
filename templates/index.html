@@ -1,0 +1,28 @@
+{% extends "template.html" %}
+{% block content %}
+
+  <header id="hero" class="hero">
+    <div class="flex-container w-container">
+      <div>
+        <h1>Add an expense</h1>
+        <a href="{{ url_for('addExpenses') }}" class="button-8 w-button">Add an Expense</a>
+      </div>
+    </div>
+  </header>
+<section id="feature-section" class="feature-section">
+    <div class="flex-container w-container">
+      <div>
+        <h2>Track your expenses</h2>
+        <p>You have spent a total of {{ expenses }} USD so far.</p>
+
+        <h2>By category</h2>
+        <p>
+        {% for x in expensesByCategory %}
+            US$ {{ x.1 }} in {{ x.0 }}. <br>
+        {% endfor %}
+        </p>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}
